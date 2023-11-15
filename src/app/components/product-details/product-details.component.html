@@ -1,0 +1,29 @@
+<div class="card bg-white mt-3">
+
+
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body" >
+    <a routerLink="/orders"  class="btn btn-sm btn-primary text-white mb-5"> Back</a>
+    <h4 class="card-title">Order Datils</h4>
+
+    <div *ngIf="currentProduct != undefined">
+
+      <h2> id : {{currentProduct.id}}</h2>
+      <h2> Name : {{currentProduct.name}}</h2>
+      <h2> Price : {{currentProduct.price}}</h2>
+      <h2> Quantity : {{currentProduct.quantity}}</h2>
+
+      <a (click)="prev()" class="btn btn-sm btn-primary ml-r text-white" [hidden]="index == 0"> Prev</a> - 
+      <a (click)="next()"  class="btn btn-sm btn-primary text-white" [hidden]="index  == allIds.length - 1 "> Next</a>
+
+
+    </div>
+
+    <div *ngIf="currentProduct == undefined">
+
+      <h2 >Not Found</h2>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<a (click)="back()" class="btn btn-sm btn-primary text-white mb-5 mt-3"> Back</a>
+
+<div class="row justify-content-center">
+
+  <div class="col-sm-6">
+
+
+    <div class="card text-center ">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body text-center">
+        <h4 class="card-title">Add Prodect</h4>
+
+
+       
+
+        <form (ngSubmit)="submit()" #prodForm ='ngForm' >
+
+          <div class="row">
+
+            <div class="col-sm-6">
+              <label for=""></label>
+              <label [hidden]="prodName.valid" class="text-danger"> Required</label>
+              <input type="text" class="form-control" #prodName="ngModel" [(ngModel)]="product.name" name="name" pattern="^[A-Za-z0-9 ]+$" placeholder="Name" required>
+
+            </div>
+
+            <div class="col-sm-6">
+              <label for=""></label>
+              <label [hidden]="prodPrice.valid" class="text-danger"> Required</label>
+              <input type="number" class="form-control " #prodPrice="ngModel" [(ngModel)]="product.price"  name="price" id="" placeholder="Price" required>
+
+            </div>
+
+            <div class="col-sm-6">
+              <label for=""></label>
+              <label [hidden]="prodQuantity.valid" class="text-danger"> Required</label>
+              <input type="number" class="form-control"  #prodQuantity="ngModel" [(ngModel)]="product.quantity"  name="quantity" id="" placeholder="Quantity" required>
+
+            </div>
+
+
+            <div class="col-sm-6">
+              <label for=""></label>
+              <label [hidden]="prodCatigoryId.valid" class="text-danger"> Required</label>
+               <select class="form-control" name="categoryId" #prodCatigoryId="ngModel" [(ngModel)]="product.categoryId" required >
+                 <option  value="0"> Select Category</option>
+                 <option *ngFor="let cat of categories"   [ngValue]="cat.id" >{{cat.name}}</option>
+               </select>
+      
+
+            </div>
+          </div>
+
+
+          <div class="row mt-5 justify-content-center">
+           
+            <label>Image</label>
+        </div>
+
+            <div class="row justify-content-center">
+              <input type="file" class="form-control col-sm-4" #prodImageUrl [(ngModel)]="product.imageUrl" name="imageUrl" id="" >
+            </div>
+           
+
+          <div class="row mt-5 justify-content-center">
+
+            <button type="submit" [disabled]="prodForm.invalid" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
