@@ -1,0 +1,44 @@
+<h2 class="text-center mt-2">Employees </h2>
+
+<div class="row m-3">
+
+    <a class="btn btn-primary mb-2" routerLink='/add-employee' >Add</a>
+
+   <table class="table table-striped table-inverse  bg-light ">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Deparment Name</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container>
+                <tr *ngFor="let emp of employees" >
+
+                    <td> {{emp.id}} </td>
+
+                    <td> {{emp.name}} </td>
+
+                    <td> {{emp.email}} </td>
+
+                    <td> {{emp.departmentName}} </td>
+
+                    <td >
+                     
+                        <a  class="btn btn-info btn-sm mr-2" [routerLink]="['/orders' , emp.id]" > Edit </a>
+
+                        <button (click)="confirmDelete(emp.id)" class="btn btn-danger btn-sm" > Delete </button>
+
+                    </td>
+              
+                </tr>               
+
+            </ng-container>
+             
+        </tbody>
+   </table>
+
+</div>

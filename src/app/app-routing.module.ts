@@ -10,18 +10,25 @@ import { authGuard } from './guards/auth.guard';
 import { OrderMasterComponent } from './components/order/order-master/order-master.component';
 import { AddComponent } from './components/order/add/add.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { AllEmployeeComponent } from './components/all-employee/all-employee.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 
 const routes: Routes = [
   {path:'' , component:MainLayoutComponent , children : [
 
     {path:'' ,  redirectTo: 'home' ,  pathMatch : 'full'},
-    {path:'home' , component: HomeComponent ,  canActivate:[authGuard]},
-    {path:'orders' , component: OrderMasterComponent , canActivate:[authGuard]},
-    {path:'orders/:id' , component: ProductDetailsComponent},
-    {path:'add-order' , component: AddComponent},
-    {path:'user-register' , component: UserRegisterComponent},
-    {path:'login' , component: LoginComponent , } ,
+    {path:'employees' , component: AllEmployeeComponent },
+    {path:'add-employee' , component: AddEmployeeComponent},
+    {path:'edit-employee/:id' , component: AddEmployeeComponent},
+
+    // {path:'home' , component: HomeComponent ,  canActivate:[authGuard]},
+    // {path:'orders' , component: OrderMasterComponent , canActivate:[authGuard]},
+    // {path:'orders/:id' , component: ProductDetailsComponent},
+    // {path:'add-order' , component: AddComponent},
+    // {path:'user-register' , component: UserRegisterComponent},
+    // {path:'login' , component: LoginComponent , } ,
+    {path:'**' ,component: NotFoundComponent },
    
   ]},
 

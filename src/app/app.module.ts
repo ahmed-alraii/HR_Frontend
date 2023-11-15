@@ -20,6 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AddComponent } from './components/order/add/add.component';
 import { EditOrderComponent } from './components/order/edit-order/edit-order.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { AllEmployeeComponent } from './components/all-employee/all-employee.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { UserRegisterComponent } from './components/user-register/user-register.
     AddComponent,
     EditOrderComponent,
     UserRegisterComponent,
+    AllEmployeeComponent,
+    AddEmployeeComponent,
   
   ],
   imports: [
